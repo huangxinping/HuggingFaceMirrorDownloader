@@ -24,6 +24,6 @@ python dataset.py --repo='Monor/hwtcm' --use_model_scope=False --num-retries=100
 ```
 
 注意事项：  
-对于ModelScope，并非HuggingFace的任意模型或数据集都可以下载。如报错如下，则请手动检查：
+对于ModelScope，并非HuggingFace的任意模型或数据集都可以下载。如报错如下，则请使用`--use_model_scope=False`：
 
 modelscope.hub.errors.RequestError: Url = https://www.modelscope.cn/api/v1/datasets/fka/awesome-chatgpt-prompts, Request id=8c1d2564-e24a-49f3-b6b0-1d2c358a9d20 Code = 10020101002 Message = 不存在的数据集, Please specify correct dataset_name and namespace.
