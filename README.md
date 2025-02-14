@@ -14,13 +14,13 @@
 ## 模型
 
 ```
-python model.py --repo="Monor/Qwen1.5-0.5B-h-world" --local-dir="/Users/huangxinping/Desktop"
+python model.py --repo="Monor/Qwen1.5-0.5B-h-world"
 ```
 
 ## 数据集
 
 ```
-python dataset.py --repo='Monor/hwtcm' --use_model_scope=False --num-retries=100
+python dataset.py --repo='Monor/hwtcm' --use_model_scope=False --num-retries=100 --local-dir="/Users/huangxinping/Desktop"
 ```
 
 注意事项：  
