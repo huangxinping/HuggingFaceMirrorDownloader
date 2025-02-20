@@ -15,9 +15,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     assert args.repo is not None, "Please specify the repo name"
 
-    if args.local_dir is None:
-        args.local_dir = args.repo
-
     for _ in range(args.num_retries):
         if args.use_model_scope:
             if not is_library_installed("modelscope"):
