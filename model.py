@@ -15,20 +15,22 @@ if __name__ == "__main__":
     args = parser.parse_args()
     assert args.repo is not None, "Please specify the repo name"
 
-    for _ in range(args.num_retries):
-        if args.use_model_scope:
-            if not is_library_installed("modelscope"):
-                install_library("modelscope")
-            from modelscope import snapshot_download
+    
+    if args.use_model_scope:
+        if not is_library_installed("modelscope"):
+            install_library("modelscope")
+        from modelscope import snapshot_download
 
-            if args.local_dir is None:
-                args.local_dir = f"{os.getcwd()}"
+        if args.local_dir is None:
+            args.local_dir = f"{os.getcwd()}"
+        for _ in range(args.num_retries):
             snapshot_download(args.repo, cache_dir=args.local_dir)
+    else:
+        if args.local_dir is None:
+            args.local_dir = args.repo
         else:
-            if args.local_dir is None:
-                args.local_dir = args.repo
-            else:
-                args.local_dir = f"{args.local_dir}/{args.repo}"
+            args.local_dir = f"{args.local_dir}/{args.repo}"
+        for _ in range(args.num_retries):
             subprocess.run(
                 [
                     "huggingface-cli",
