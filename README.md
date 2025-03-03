@@ -13,9 +13,9 @@
 
 ```
 --repo              仓库名称
---local-dir         本地路径
---use_model_scope   是否使用ModelScope
---num-retries       重试次数
+--local-dir         本地路径（默认下载到脚本执行目录）
+--use_model_scope   是否使用ModelScope（默认为True）
+--num-retries       重试次数（默认为10）
 ```
 
 ## 加速下载模型
